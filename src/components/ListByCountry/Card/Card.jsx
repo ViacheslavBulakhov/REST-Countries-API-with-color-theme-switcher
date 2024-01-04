@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from "react-router-dom";
 import {
   CardBody,
   CardTitle,
@@ -8,6 +9,8 @@ import {
 } from "./CardStyled";
 
 const Card = ({ item: { name, capital = [], flags, population, region } }) => {
+  const navigate = useNavigate();
+
   const isCapital =
     capital.length > 0
       ? ` ${capital.join(", ")}`
@@ -16,7 +19,7 @@ const Card = ({ item: { name, capital = [], flags, population, region } }) => {
   const localePopulation = ` ${population.toLocaleString()}`;
 
   return (
-    <CardWrap>
+    <CardWrap onClick={() => navigate(`country/${name.common}`)}>
       <Img src={flags.png} alt={flags.alt} />
       <CardBody>
         <CardTitle>{name.common}</CardTitle>

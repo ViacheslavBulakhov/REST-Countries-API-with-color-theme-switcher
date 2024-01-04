@@ -1,29 +1,21 @@
-import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import FiltersBox from "./components/Filters/FiltersBox";
 import Header from "./components/Header/Header";
-import ListByCountry from "./components/ListByCountry/ListByCountry";
 import Main from "./components/Main/Main";
-import axios from "axios";
-import { ALL_COUNTRIES } from "./config";
+import HomePage from "./pages/HomePage";
+import Details from "./pages/Details";
+import NotFound from "./pages/NotFound";
 
 function App() {
-  const [countries, setCountries] = useState([]);
-
-  useEffect(() => {
-    try {
-      axios.get(ALL_COUNTRIES).then(({ data }) => setCountries(data));
-    } catch (error) {
-      return;
-    }
-  }, []);
-
   return (
     <>
       <Header />
       <Main>
-        <FiltersBox />
-        <ListByCountry data={countries} />
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="country/:name" element={<Details />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </Main>
     </>
   );

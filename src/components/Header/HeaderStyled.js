@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const HeaderEl = styled.header`
   //   box-shadow: var(--shadow);
@@ -9,10 +10,17 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 2rem 0;
 `;
 
-export const Title = styled.p`
+export const Title = styled(NavLink).attrs({
+  href: "/",
+})`
   font-weight: var(--fw-bold);
+  font-size: var(--fs--sm);
+
+  color: var(--colors-text);
+  text-decoration: none;
 `;
 
 export const SwitcherWrap = styled.div`
