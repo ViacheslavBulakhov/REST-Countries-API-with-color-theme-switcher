@@ -1,19 +1,20 @@
 import styled from "styled-components";
 import Select from "react-select";
-const dot = (color = "transparent") => ({
-  alignItems: "center",
-  display: "flex",
+// const dot = (color = "transparent") => ({
+//   alignItems: "center",
+//   display: "flex",
 
-  ":before": {
-    backgroundColor: color,
-    borderRadius: 10,
-    content: '" "',
-    display: "block",
-    marginRight: 8,
-    height: 10,
-    width: 10,
-  },
-});
+//   ":before": {
+//     backgroundColor: color,
+//     borderRadius: 10,
+//     content: '" "',
+//     display: "block",
+//     marginRight: 8,
+//     height: 10,
+//     width: 10,
+//   },
+// });
+
 export const CustomSelectEl = styled(Select).attrs({
   styles: {
     control: (styles) => ({
@@ -24,17 +25,24 @@ export const CustomSelectEl = styled(Select).attrs({
       height: "50px",
       cursor: "pointer",
       color: "var(--colors-text)",
-      border: `none`,
-      boxShadow: "none",
+      border: "none",
+      boxShadow: "var(--shadow)",
+      fontWeight: "var(--fw-normal)",
     }),
     menu: (styles) => ({
       ...styles,
       backgroundColor: "var(--colors-ui-base)",
+      border: "none",
+      boxShadow: "var(--shadow)",
+      fontWeight: "var(--fw-normal)",
     }),
     option: (styles, state) => ({
       ...styles,
       backgroundColor: state.isSelected && "var(--colors-bg)",
       color: state.isSelected && "var(--colors-text)",
+      border: "none",
+      cursor: "pointer",
+      borderRadius: "var(--b-radius)",
     }),
 
     singleValue: (styles) => ({
@@ -47,5 +55,5 @@ export const CustomSelectEl = styled(Select).attrs({
     }),
   },
 })`
-  border: none;
+  width: clamp(200px, 40%, 300px);
 `;
