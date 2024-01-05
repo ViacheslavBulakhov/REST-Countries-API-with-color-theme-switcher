@@ -6,7 +6,6 @@ const ListByCountry = ({ data = [] }) => {
   return (
     <ListWrap>
       {data.map((item) => {
-        console.log(item);
         return <Card key={item.name.common} item={item} />;
       })}
     </ListWrap>
