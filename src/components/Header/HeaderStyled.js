@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled(NavLink).attrs({
-  href: "/",
+  to: "/",
 })`
   font-weight: var(--fw-bold);
   font-size: var(--fs--sm);

@@ -45,7 +45,6 @@ const Details = () => {
 
     setCountryData(() => ({ ...data, nativeName, languages }));
   };
-  console.log(countryData);
 
   return (
     <>
