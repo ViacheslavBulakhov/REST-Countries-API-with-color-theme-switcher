@@ -1,7 +1,17 @@
-import React from "react";
+import { LinkBtn, Section, Title, Wrapper } from "./NotFoundStyled";
 
-const NotFound = () => {
-  return <div>Not Found</div>;
-};
-
+function NotFound() {
+  return (
+    <Section>
+      <Title>
+        Ooops! <br />
+        This page not found :(
+      </Title>
+      <Wrapper>
+        <img src="" />
+      </Wrapper>
+      <LinkBtn to="/">Back to main</LinkBtn>
+    </Section>
+  );
+}
 export default NotFound;

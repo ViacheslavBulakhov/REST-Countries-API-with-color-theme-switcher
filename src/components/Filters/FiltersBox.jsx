@@ -9,7 +9,6 @@ const FiltersBox = ({ handleSearch }) => {
   const [region, setRegion] = useState("");
 
   useEffect(() => {
-    console.log(region?.value);
     const regionValue = region?.value || "";
     handleSearch(search, regionValue);
 

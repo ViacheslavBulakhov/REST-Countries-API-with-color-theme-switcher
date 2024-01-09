@@ -7,6 +7,10 @@ import {
   DescriptionList,
   Img,
 } from "../ListByCountry/Card/CardStyled";
+import { InfoImage, Meta, Tag, TagGroup, Wrapper } from "./CountryInfoStyled";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { filterByCode } from "../../config";
 
 const CountryInfo = ({
   item: {
@@ -19,9 +23,18 @@ const CountryInfo = ({
     nativeName,
     languages,
     tld,
+    borders = [],
   },
 }) => {
+  const [neighbors, setNeighbors] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (borders.length)
+      axios
+        .get(filterByCode(borders))
+        .then(({ data }) => setNeighbors(data.map((item) => item.name.common)));
+  }, [borders]);
 
   const isCapital =
     capital.length > 0
@@ -31,8 +44,8 @@ const CountryInfo = ({
   const localePopulation = ` ${population.toLocaleString()}`;
 
   return (
-    <CardWrap onClick={() => navigate(`country/${name.common}`)}>
-      <Img src={flags.png} alt={flags.alt} />
+    <Wrapper>
+      <InfoImage src={flags.png} alt={flags.alt} />
       <CardBody>
         <CardTitle>{name.common}</CardTitle>
         <DescriptionList>
@@ -72,8 +85,22 @@ const CountryInfo = ({
             <span>{` ${languages.join(", ")}`}</span>
           </p>
         </DescriptionList>
+        <Meta>
+          <CardTitle>Border Countries</CardTitle>
+          {!borders.length ? (
+            <span>There is no border countries</span>
+          ) : (
+            <TagGroup>
+              {neighbors.map((item) => (
+                <Tag key={item} onClick={() => navigate(`/country/${item}`)}>
+                  {item}
+                </Tag>
+              ))}
+            </TagGroup>
+          )}
+        </Meta>
       </CardBody>
-    </CardWrap>
+    </Wrapper>
   );
 };
 

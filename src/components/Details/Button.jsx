@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { IoArrowBack } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const BackBtn = styled.button`
   padding: 0 1rem;
@@ -20,8 +20,18 @@ const BackBtn = styled.button`
 
 const Button = () => {
   const navigate = useNavigate();
+  const { key } = useLocation();
+
+  const onBackLink = () => {
+    if (key === "default") {
+      navigate("/");
+    } else {
+      navigate(-1);
+    }
+  };
+
   return (
-    <BackBtn onClick={() => navigate("/")}>
+    <BackBtn onClick={onBackLink}>
       <IoArrowBack /> Back
     </BackBtn>
   );

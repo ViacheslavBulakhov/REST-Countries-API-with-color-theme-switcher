@@ -1,25 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { searchByCountry } from "../config";
 import Button from "../components/Details/button";
-import Card from "../components/ListByCountry/Card/Card";
 import CountryInfo from "../components/Details/CountryInfo";
 
 const Details = () => {
   const [countryData, setCountryData] = useState(null);
 
   const { name } = useParams();
-
-  // useEffect(() => {
-  //   try {
-  //     axios
-  //       .get(searchByCountry(name))
-  //       .then(({ data }) => setCountryData(data[0]));
-  //   } catch (error) {
-  //     return;
-  //   }
-  // }, [name]);
 
   useEffect(() => {
     try {
