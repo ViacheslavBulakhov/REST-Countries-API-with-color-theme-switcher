@@ -4,30 +4,16 @@ import styled from "styled-components";
 export const Section = styled.section`
   display: flex;
   width: 100%;
+  height: 100vh;
   flex-direction: column;
-  align-items: center;
-  padding-top: 80px;
-  background-size: cover;
-  background-position: center;
+  align-items: flex-start;
 `;
-export const Wrapper = styled.div`
-  &img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
-  margin-bottom: 60px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 70px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-bottom: 18px;
-  }
-`;
+
 export const LinkBtn = styled(Link)`
   text-decoration: none;
 
   padding: 0 1rem;
+  margin: 10px;
   background-color: var(--colors-ui-base);
   box-shadow: var(--shadow);
   line-height: 2.5;
@@ -51,15 +37,19 @@ export const LinkBtn = styled(Link)`
 export const Title = styled.h2`
   max-width: 280px;
   margin-bottom: 80px;
+
   text-align: center;
+
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
+
   @media screen and (min-width: 768px) {
     font-size: 32px;
     font-weight: 600;
-    line-height: 1.3; /* 41.6px */
+    line-height: 1.3;
     max-width: 460px;
+
     & br {
       display: none;
     }

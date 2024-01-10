@@ -32,10 +32,6 @@ export const Meta = styled.div`
   flex-direction: column;
   align-items: flex-start;
 
-  & > b {
-    font-weight: var(--fw-bold);
-  }
-
   @media (min-width: 767px) {
     flex-direction: row;
     align-items: center;

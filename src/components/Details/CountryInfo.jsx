@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
   CardBody,
   CardTitle,
-  CardWrap,
   DescriptionList,
-  Img,
 } from "../ListByCountry/Card/CardStyled";
 import { InfoImage, Meta, Tag, TagGroup, Wrapper } from "./CountryInfoStyled";
 import { useEffect, useState } from "react";
